@@ -31,8 +31,8 @@ def readpage(av):
 
 def runner():
     av = input('请输入番号：')
-    hd = input('请输入清晰度：')
-    bit = input('请输入视频质量：')
+    # hd = input('请输入清晰度：')
+    # bit = input('请输入视频质量：')
 
     infos = readpage(str(av))
 
@@ -40,6 +40,13 @@ def runner():
     index = 1
 
     for txt in infos[1]:
+        luas = os.listdir(folder + str(index))
+        for lua in luas:
+            if lua.find('lua') > -1:
+                hd = lua.split('flv')[1].split('.')[0]
+                bit = lua.split('.')[3]
+                break
+
         path = folder + str(index) +'/lua.flv'+ hd +'.bili2api.'+ bit +'/'
         files = os.listdir(path)
         isOneFile = len(files) <= 3
