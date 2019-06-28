@@ -23,7 +23,8 @@ def readpage(av):
     items = []
     index = 1
     for page in pages:
-        items.append('P'+ str(index) +' '+ replace_spcial_word(page['part']))
+        part = title if(page['part'] == '') else ('P'+ str(index) +' '+ replace_spcial_word(page['part']))
+        items.append(part)
         index += 1
     
     return [title, items]
