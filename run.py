@@ -30,11 +30,14 @@ def readpage(av):
     return [title, items]
 
 def runner():
-    av = input('请输入番号：')
-    # hd = input('请输入清晰度：')
-    # bit = input('请输入视频质量：')
+    avno = input('请输入番号关键字：')
+    avs = os.listdir('./')
+    for v in avs:
+        if v.find(str(avno)) > -1:
+            av = str(v)
+            break
 
-    infos = readpage(str(av))
+    infos = readpage(av)
 
     folder = './'+ av + '/'
     index = 1
